@@ -22,6 +22,7 @@ namespace Guess_My_Number_Game_Bisection_Algorithm
             Console.WriteLine("Select a number from 1 to 10:");
             userInput = ElicitInput();
             Console.WriteLine($"You chose :{userInput}");
+            Console.WriteLine(new BisectionAlgorithm().Bisect(userInput, list));
         }
         private static int ElicitInput()
         {
