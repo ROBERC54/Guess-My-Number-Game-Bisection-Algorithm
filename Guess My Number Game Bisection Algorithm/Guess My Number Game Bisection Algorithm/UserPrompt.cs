@@ -19,10 +19,24 @@ namespace Guess_My_Number_Game_Bisection_Algorithm
                 Console.Write($"{num}, ");
             }
             Console.WriteLine();
-            Console.WriteLine("Select a number from 1 to 10:");
-            userInput = ElicitInput();
+            userInput = EnforceBounds(1, 10);
             Console.WriteLine($"You chose :{userInput}");
             Console.WriteLine(new BisectionAlgorithm().Bisect(userInput, list));
+        }
+        private static int EnforceBounds(int lowerBound, int upperBound)
+        {
+            int userInput=0;
+            for (bool validInput = false; !validInput;)
+            {
+                Console.WriteLine($"Select a number from {lowerBound} to {upperBound}:");
+                userInput = ElicitInput();
+                if (userInput >= lowerBound)
+                {
+                    if (userInput <= upperBound)
+                    { validInput = true; }
+                }
+            }
+            return userInput;
         }
         private static int ElicitInput()
         {
