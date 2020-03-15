@@ -6,7 +6,8 @@ namespace Guess_My_Number_Game_Bisection_Algorithm
     {
         static void Main(string[] args)
         {
-            new UserPrompt().Run();
+            //new UserPrompt().Intro();
+            new UserPrompt().HumanPlay();
         }
     }
 }

@@ -67,5 +67,24 @@ namespace Guess_My_Number_Game_Bisection_Algorithm
             }
             return correct;
         }
+        public bool CheckUserInput(int userInput, int compuNum)
+        {
+            bool correct = false;
+            Console.WriteLine($"{userInput}, huh?  Well...");
+            if (userInput == compuNum)
+            {
+                Console.WriteLine("That's correct!");
+                correct = true;
+            }
+            else if (userInput > compuNum)
+            {
+                Console.WriteLine("That's too high!");
+            }
+            else
+            {
+                Console.WriteLine("That's too low!");
+            }
+            return correct;
+        }
     }
 }
