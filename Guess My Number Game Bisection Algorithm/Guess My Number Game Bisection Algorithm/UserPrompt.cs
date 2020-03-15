@@ -27,11 +27,6 @@ namespace Guess_My_Number_Game_Bisection_Algorithm
         {
             Random prng = new Random();
             int compuNum = prng.Next(1, 1000);
-            int[] list = new int[1000];
-            for (int i = 0; i < list.Length; i++)
-            {
-                list[i] = i + 1;
-            }
             Console.WriteLine("The computer will randomly select a number between 1 and 1000.  Try and guess it!");
             int guessesOne = 0;
             for (bool foundCompuNum = false; !foundCompuNum;guessesOne++)
@@ -40,7 +35,7 @@ namespace Guess_My_Number_Game_Bisection_Algorithm
                 Console.WriteLine($"You chose :{userInput}");
                 foundCompuNum = new BisectionAlgorithm().CheckUserInput(userInput, compuNum);
             }
-            Console.WriteLine($"Congratulations!  It took {guessesOne} guesses!  Let's try again!");
+            Console.WriteLine($"Congratulations!  Number of guesses: {guessesOne}!  Let's try again!");
             compuNum = prng.Next(1, 1000);
             Console.WriteLine("The computer will randomly select a number between 1 and 1000.  Try and guess it!");
             int guessesTwo = 0;
@@ -50,8 +45,22 @@ namespace Guess_My_Number_Game_Bisection_Algorithm
                 Console.WriteLine($"You chose :{userInput}");
                 foundCompuNum = new BisectionAlgorithm().CheckUserInput(userInput, compuNum);
             }
-            Console.WriteLine($"Congratulations!  It took {guessesTwo} guesses!  Your average is {(guessesOne+guessesTwo)/2}!");
+            Console.WriteLine($"Congratulations!  Number of guesses: {guessesTwo}!  Your average is {(guessesOne+guessesTwo)/2}!");
         }
+        public void CompPlays()
+        {
+            Console.WriteLine("Choose a number between 1 and 100!  The computer will guess it for you!");
+            int[] list = new int[100];
+            for (int i = 0; i < list.Length; i++)
+            {
+                list[i] = i + 1;
+            }
+            int guessesOne = new BisectionAlgorithm().CompGuesses(list);
+            Console.WriteLine($"Number of guesses: {guessesOne}!  Let's try again!");
+            int guessesTwo = new BisectionAlgorithm().CompGuesses(list);
+            Console.WriteLine($"Number of guesses: {guessesTwo}!  The average is {(guessesOne + guessesTwo) / 2}!");
+        }
+
         private static int EnforceBounds(int lowerBound, int upperBound)
         {
             int userInput=0;
